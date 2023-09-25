@@ -1,3 +1,0 @@
-GET http://127.0.0.1:8000/api/v1/groups/
-Content-Type: application/json
-Authorization: Token 25663d19f97ea76b5a212523b2bd12c5803d53ae

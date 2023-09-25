@@ -31,6 +31,7 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
 
 class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
+    # queryset = Comment.objects.all()
 
     def get_queryset(self):
         post_id = self.kwargs.get("post_id")
@@ -59,7 +60,7 @@ class CommentViewSet(viewsets.ModelViewSet):
     def perform_destroy(self, instance):
         if not self.request.user:
             raise PermissionDenied(
-                'Неавторизованным пользователям запрещено изменять комментарии'
+                'Неавторизованным пользователям запрещено удалять комментарии'
             )
         if instance.author != self.request.user:
             raise PermissionDenied('Запрещено удалять чужие данные!')
